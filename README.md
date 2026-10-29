@@ -61,6 +61,23 @@ certificate and notarize the app. The hardened runtime is already enabled.
 and `swift run`. The resulting binary has no Info.plist, so use the Xcode
 project for anything beyond quick checks.
 
+## Installing a non-notarized build
+
+Builds that are not notarized are blocked by Gatekeeper when they are
+downloaded. After unzipping, remove the quarantine attribute before the first
+launch:
+
+```sh
+xattr -dr com.apple.quarantine /Applications/ClipboardCloud.app
+```
+
+To package a build for distribution, run this from the folder that contains
+the app:
+
+```sh
+ditto -c -k --sequesterRsrc --keepParent ClipboardCloud.app ClipboardCloud.zip
+```
+
 ## Configuration
 
 The backend endpoints can be overridden with environment variables:
