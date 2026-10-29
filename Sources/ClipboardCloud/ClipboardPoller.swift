@@ -2,14 +2,12 @@ import AppKit
 import CryptoKit
 import Foundation
 
-/// Port de clipboardPoller.js: cada 3 s lee el portapapeles, lo cifra con la DEK
-/// y lo sube a Convex.
+
 @MainActor
 final class ClipboardPoller {
     nonisolated static let pollIntervalMs = 3000
 
     var onStatus: () -> Void = {}
-    /// La sesión nativa decide si hay usuario y DEK.
     var isAuthenticated: () -> Bool = { false }
     var encryptionKey: () -> SymmetricKey? = { nil }
     private(set) var enabled = true
@@ -22,7 +20,7 @@ final class ClipboardPoller {
     private var busy = false
     private var lastLocalHash: String?
     private var ignoreHashes: Set<String> = []
-    /// changeCount ya procesado: evita releer (y convertir a PNG) el mismo contenido en cada tick.
+
     private var handledChangeCount: Int?
 
     var isRunning: Bool { loop != nil }

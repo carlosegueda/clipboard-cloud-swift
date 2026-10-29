@@ -31,10 +31,15 @@ enum Theme {
     }
 
     /// Registra Oswald.ttf: dentro de la .app está en Contents/Resources;
-    /// con `swift run` / Xcode, en el bundle de recursos de SwiftPM.
+    /// con `swift run`, en el bundle de recursos de SwiftPM.
     static func registerFonts() {
-        guard let url = Bundle.main.url(forResource: "Oswald", withExtension: "ttf")
-            ?? Bundle.module.url(forResource: "Oswald", withExtension: "ttf") else {
+        #if SWIFT_PACKAGE
+        let url = Bundle.main.url(forResource: "Oswald", withExtension: "ttf")
+            ?? Bundle.module.url(forResource: "Oswald", withExtension: "ttf")
+        #else
+        let url = Bundle.main.url(forResource: "Oswald", withExtension: "ttf")
+        #endif
+        guard let url else {
             print("[theme] Oswald.ttf no encontrado")
             return
         }
