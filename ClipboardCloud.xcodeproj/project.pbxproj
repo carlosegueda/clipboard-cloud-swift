@@ -32,6 +32,10 @@
 		ED9376077AAD65FC32E7AB9C /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247B73E61F1F998C6BDD25C6 /* Models.swift */; };
 		FC332E8BDBD14B63BC3E6E34 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD1E7CAEBC6DBBC4ECAE691 /* AddView.swift */; };
 		FDED60EEBF15F6143794B2C6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BABA110B30DE88D9533DF4D /* Theme.swift */; };
+		A1C0DE000000000000000001 /* TransferClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C0DE000000000000000011 /* TransferClient.swift */; };
+		A1C0DE000000000000000002 /* TransferCrypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C0DE000000000000000012 /* TransferCrypto.swift */; };
+		A1C0DE000000000000000003 /* TransferStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C0DE000000000000000013 /* TransferStore.swift */; };
+		A1C0DE000000000000000004 /* TransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C0DE000000000000000014 /* TransferView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +65,10 @@
 		DCAF089F9C5C9FC3D6D0021A /* MainWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowView.swift; sourceTree = "<group>"; };
 		E04992ED2908B13AB969C004 /* Stores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stores.swift; sourceTree = "<group>"; };
 		F7535DD12F4E61B9F19507D8 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
+		A1C0DE000000000000000011 /* TransferClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferClient.swift; sourceTree = "<group>"; };
+		A1C0DE000000000000000012 /* TransferCrypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferCrypto.swift; sourceTree = "<group>"; };
+		A1C0DE000000000000000013 /* TransferStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferStore.swift; sourceTree = "<group>"; };
+		A1C0DE000000000000000014 /* TransferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -97,6 +105,7 @@
 				7B00A31428853642CC2B2131 /* MainView.swift */,
 				265BA891F37BD7F0E730D42C /* RootView.swift */,
 				678A3D388D8AF25D758F5C7F /* SettingsView.swift */,
+				A1C0DE000000000000000014 /* TransferView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -108,6 +117,9 @@
 				4EFE16D0773F7BC8372DE4AB /* ClipboardCloudApp.swift */,
 				D3612EBFFBE3A481349B2A06 /* ClipboardPoller.swift */,
 				BA692146E4CF3A459568FD25 /* ClipCrypto.swift */,
+				A1C0DE000000000000000013 /* TransferStore.swift */,
+				A1C0DE000000000000000012 /* TransferCrypto.swift */,
+				A1C0DE000000000000000011 /* TransferClient.swift */,
 				1A43A9A979E80BBFFB3B94FD /* ConvexHTTPClient.swift */,
 				78AEC9F647896569CFBD3C3E /* Localization.swift */,
 				19ED6E861524665601F896F7 /* Localization+PtRu.swift */,
@@ -239,6 +251,10 @@
 				75E47892C46C96FC5C642DA6 /* Stores.swift in Sources */,
 				6CC287A2DCB1FED00F6862C8 /* Support.swift in Sources */,
 				FDED60EEBF15F6143794B2C6 /* Theme.swift in Sources */,
+				A1C0DE000000000000000004 /* TransferView.swift in Sources */,
+				A1C0DE000000000000000003 /* TransferStore.swift in Sources */,
+				A1C0DE000000000000000002 /* TransferCrypto.swift in Sources */,
+				A1C0DE000000000000000001 /* TransferClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

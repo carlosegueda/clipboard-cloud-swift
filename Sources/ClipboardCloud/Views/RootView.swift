@@ -14,7 +14,7 @@ struct RootView: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             case .signedOut:
-                AuthView()
+                SignedOutView()
             case .locked:
                 UnlockView()
             case .ready:
@@ -47,6 +47,23 @@ struct RootView: View {
     }
 }
 
+/// Sin sesión: Cloud Transfer es lo principal y el acceso a la cuenta va al lado.
+private struct SignedOutView: View {
+    var body: some View {
+        HStack(alignment: .top, spacing: 16) {
+            TransferView()
+                .frame(maxWidth: .infinity)
+            AuthView()
+                .frame(width: 320)
+                .padding(.bottom, 5)
+                .padding(.trailing, 5)
+        }
+        .padding(16)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+        .background { AuthBackdrop() }
+    }
+}
+
 /// components/AuthScreen.tsx
 struct AuthView: View {
     @Environment(AppModel.self) private var model
@@ -58,7 +75,8 @@ struct AuthView: View {
 
     var body: some View {
         let loc = model.loc
-        AuthBackground {
+        HardCard(padding: 24, shadow: false) {
+            VStack(alignment: .leading, spacing: 14) {
             BrandHeader()
             Text(loc.t(signUp ? .signUpTitle : .signInTitle))
                 .font(Theme.font(18.4, .bold))
@@ -104,6 +122,7 @@ struct AuthView: View {
                 .buttonStyle(HardLinkStyle())
             }
             .padding(.top, 2)
+            }
         }
     }
 
@@ -218,14 +237,18 @@ private struct AuthBackground<Content: View>: View {
         }
         .frame(width: 420)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background {
-            ZStack {
-                Theme.bg
-                RadialGradient(
-                    colors: [Color(hex: 0xE8EAEE), Color(hex: 0xE8EAEE).opacity(0)],
-                    center: UnitPoint(x: 0.1, y: 0), startRadius: 0, endRadius: 520
-                )
-            }
+        .background { AuthBackdrop() }
+    }
+}
+
+private struct AuthBackdrop: View {
+    var body: some View {
+        ZStack {
+            Theme.bg
+            RadialGradient(
+                colors: [Color(hex: 0xE8EAEE), Color(hex: 0xE8EAEE).opacity(0)],
+                center: UnitPoint(x: 0.1, y: 0), startRadius: 0, endRadius: 520
+            )
         }
     }
 }

@@ -56,6 +56,54 @@ final class Localizer {
 
     // MARK: - Con parámetros
 
+    func transferLimits(_ files: Int, _ size: String) -> String {
+        pick("Hasta \(files) archivos y \(size) en total. Se cifran en tu dispositivo.",
+             "Up to \(files) files and \(size) in total. Encrypted on your device.",
+             "Até \(files) arquivos e \(size) no total. Criptografados no seu dispositivo.",
+             "До \(files) файлов и \(size) всего. Шифруются на вашем устройстве.")
+    }
+
+    func transferUploading(_ percent: Int) -> String {
+        pick("Subiendo \(percent)%", "Uploading \(percent)%", "Enviando \(percent)%", "Загрузка \(percent)%")
+    }
+
+    func transferDownloading(_ percent: Int) -> String {
+        pick("Descargando \(percent)%", "Downloading \(percent)%", "Baixando \(percent)%", "Скачивание \(percent)%")
+    }
+
+    func transferExpires(at date: Date) -> String {
+        let total = max(0, Int((date.timeIntervalSinceNow / 60).rounded(.up)))
+        let hours = total / 60, minutes = total % 60
+        if hours > 0 {
+            return pick("Expira en \(hours) h \(minutes) min", "Expires in \(hours)h \(minutes)m",
+                        "Expira em \(hours) h \(minutes) min", "Истекает через \(hours) ч \(minutes) мин")
+        }
+        return pick("Expira en \(minutes) min", "Expires in \(minutes)m",
+                    "Expira em \(minutes) min", "Истекает через \(minutes) мин")
+    }
+
+    func transferFileCount(_ n: Int) -> String {
+        pick("\(n) \(n == 1 ? "archivo" : "archivos")", "\(n) \(n == 1 ? "file" : "files")",
+             "\(n) \(n == 1 ? "arquivo" : "arquivos")", "\(n) \(ru(n, "файл", "файла", "файлов"))")
+    }
+
+    func transferTooMany(_ n: Int) -> String {
+        pick("Máximo \(n) archivos por enlace.", "Up to \(n) files per link.",
+             "Máximo de \(n) arquivos por link.", "Не более \(n) файлов на ссылку.")
+    }
+
+    func transferTooLarge(_ size: String) -> String {
+        pick("El total supera el límite de \(size).", "The total is over the \(size) limit.",
+             "O total ultrapassa o limite de \(size).", "Общий размер превышает лимит \(size).")
+    }
+
+    func transferLocked(_ minutes: Int) -> String {
+        pick("Demasiados intentos. Prueba de nuevo en \(minutes) min.",
+             "Too many attempts. Try again in \(minutes) min.",
+             "Muitas tentativas. Tente novamente em \(minutes) min.",
+             "Слишком много попыток. Повторите через \(minutes) мин.")
+    }
+
     func entriesInHistory(_ n: Int) -> String {
         pick("\(n) \(n == 1 ? "entrada" : "entradas") en el historial",
              "\(n) \(n == 1 ? "entry" : "entries") in history",
@@ -154,6 +202,27 @@ final class Localizer {
     // MARK: - Diccionarios
 
     static let es: [L: String] = [
+        .navTransfer: "Transferir",
+        .transferLede: "Comparte archivos con un enlace, sin crear cuenta. Se borran solos en 24 horas.",
+        .transferLedeAccount: "Comparte archivos con un enlace que cualquiera puede abrir. Se borran solos en 24 horas.",
+        .transferDrop: "Arrastra archivos aquí", .transferChoose: "Elegir archivos",
+        .transferPasswordLabel: "Contraseña (opcional)",
+        .transferPasswordHint: "Quien abra el enlace la necesitará. No se puede recuperar; compártela por otro medio.",
+        .transferPasswordShort: "La contraseña debe tener al menos 4 caracteres.",
+        .transferCreate: "Crear enlace", .transferReady: "Tu enlace está listo", .transferCopyLink: "Copiar enlace",
+        .transferNew: "Enviar otros archivos", .transferActive: "Enlaces activos", .transferDelete: "Eliminar",
+        .transferDeleteFailed: "No se pudo eliminar", .transferHasPassword: "Con contraseña",
+        .transferFolderSkipped: "Las carpetas no se pueden enviar; comprímelas primero.",
+        .transferFailed: "No se pudo subir. Inténtalo de nuevo.",
+        .transferQuota: "No hay espacio disponible ahora mismo. Elimina enlaces activos o inténtalo más tarde.",
+        .transferReceiveTitle: "Te compartieron archivos", .transferMissingTitle: "Este enlace ya no está disponible",
+        .transferMissingBody: "Los enlaces duran 24 horas y también pueden eliminarse antes.",
+        .transferBadLink: "El enlace está incompleto. Cópialo entero.",
+        .transferProtected: "Este enlace está protegido con contraseña", .transferUnlock: "Abrir",
+        .transferWrongPassword: "Contraseña incorrecta.", .transferOpenFailed: "No se pudo abrir el enlace.",
+        .transferDownload: "Descargar", .transferDownloadAll: "Descargar todo",
+        .transferDownloadFailed: "No se pudo descargar el archivo.", .transferOpenLink: "Abrir un enlace recibido",
+        .transferLinkPlaceholder: "Pega el enlace aquí",
         .brandSubtitle: "Tu historial sync",
         .navHistory: "Historial", .navAdd: "Agregar", .navSettings: "Configuración", .navAbout: "Acerca de",
         .account: "Cuenta", .logout: "Salir",
@@ -236,6 +305,27 @@ final class Localizer {
     ]
 
     static let en: [L: String] = [
+        .navTransfer: "Transfer",
+        .transferLede: "Share files with a link, no account needed. They delete themselves after 24 hours.",
+        .transferLedeAccount: "Share files with a link anyone can open. They delete themselves after 24 hours.",
+        .transferDrop: "Drop files here", .transferChoose: "Choose files",
+        .transferPasswordLabel: "Password (optional)",
+        .transferPasswordHint: "Anyone opening the link will need it. It can't be recovered, so share it separately.",
+        .transferPasswordShort: "The password must be at least 4 characters.",
+        .transferCreate: "Create link", .transferReady: "Your link is ready", .transferCopyLink: "Copy link",
+        .transferNew: "Send other files", .transferActive: "Active links", .transferDelete: "Delete",
+        .transferDeleteFailed: "Could not delete", .transferHasPassword: "Password protected",
+        .transferFolderSkipped: "Folders can't be sent; compress them first.",
+        .transferFailed: "Upload failed. Please try again.",
+        .transferQuota: "No space available right now. Delete active links or try again later.",
+        .transferReceiveTitle: "Files shared with you", .transferMissingTitle: "This link is no longer available",
+        .transferMissingBody: "Links last 24 hours and can also be deleted sooner.",
+        .transferBadLink: "The link is incomplete. Copy all of it.",
+        .transferProtected: "This link is password protected", .transferUnlock: "Open",
+        .transferWrongPassword: "Wrong password.", .transferOpenFailed: "Could not open the link.",
+        .transferDownload: "Download", .transferDownloadAll: "Download all",
+        .transferDownloadFailed: "Could not download the file.", .transferOpenLink: "Open a link you received",
+        .transferLinkPlaceholder: "Paste the link here",
         .brandSubtitle: "Sync history",
         .navHistory: "History", .navAdd: "Add", .navSettings: "Settings", .navAbout: "About",
         .account: "Account", .logout: "Log out",
@@ -351,4 +441,11 @@ enum L: String {
     case unknownUser, decryptPending
     case menuShow, menuPause, menuResume, menuSignIn, menuUnlock, menuSessionActive
     case menuScreenshotPermission, menuQuit, menuCopyLatest
+    case navTransfer, transferLede, transferLedeAccount, transferDrop, transferChoose
+    case transferPasswordLabel, transferPasswordHint, transferPasswordShort
+    case transferCreate, transferReady, transferCopyLink, transferNew, transferActive, transferDelete
+    case transferDeleteFailed, transferHasPassword, transferFolderSkipped, transferFailed, transferQuota
+    case transferReceiveTitle, transferMissingTitle, transferMissingBody, transferBadLink
+    case transferProtected, transferUnlock, transferWrongPassword, transferOpenFailed
+    case transferDownload, transferDownloadAll, transferDownloadFailed, transferOpenLink, transferLinkPlaceholder
 }

@@ -1,7 +1,7 @@
 import SwiftUI
 
 enum AppSection: String, CaseIterable, Identifiable {
-    case add, history, about, settings
+    case add, history, transfer, about, settings
 
     var id: String { rawValue }
 
@@ -9,6 +9,7 @@ enum AppSection: String, CaseIterable, Identifiable {
         switch self {
         case .add: .navAdd
         case .history: .navHistory
+        case .transfer: .navTransfer
         case .about: .navAbout
         case .settings: .navSettings
         }
@@ -18,6 +19,7 @@ enum AppSection: String, CaseIterable, Identifiable {
         switch self {
         case .add: "plus"
         case .history: "clock.arrow.circlepath"
+        case .transfer: "paperplane"
         case .about: "info.circle"
         case .settings: "gearshape"
         }
@@ -44,6 +46,8 @@ struct MainView: View {
                     HistoryView(onShare: { sharingItem = $0 }, onGoAdd: { section = .add })
                 case .add:
                     AddView(onSaved: { section = .history })
+                case .transfer:
+                    TransferView(signedIn: true)
                 case .settings:
                     SettingsView()
                 case .about:

@@ -26,6 +26,10 @@ dependencies.
   and drop or paste them, up to 10 files per batch.
 - **Friends and sharing.** Invite friends by email and share encrypted entries
   with them. Each entry is re-encrypted for each recipient.
+- **Cloud Transfer.** Send any files through a link, with or without an
+  account: up to 20 files and 500 MB (1 GB with an account). Links can have a
+  password and expire after 24 hours. Links received from others can be opened
+  and downloaded from the app.
 - **Menu bar actions.** From the menu bar you can:
   - show the window
   - copy the latest entry
@@ -102,6 +106,11 @@ The encryption format is compatible with the web client:
     with the user's DEK.
   - Shared entries are encrypted with a per-recipient key derived with
     ECDH and HKDF-SHA256.
+- **Transfers.** Files and their names are encrypted with AES-256-GCM before
+  upload, in chunks of up to 16 MiB. The key comes from a random secret in the
+  link's fragment, which is never sent to the server, plus the optional
+  password (PBKDF2-SHA256, 310,000 iterations). Password attempts are limited
+  by the server. The format is shared with `lib/transfer.ts` in the web client.
 - **Local storage.** Session tokens and the unwrapped DEK are stored in the
   macOS Keychain.
 - **Password changes.** Changing the password re-wraps the DEK without
@@ -127,6 +136,9 @@ Sources/ClipboardCloud/
   SessionStore.swift        Keychain persistence
   ConvexHTTPClient.swift    Convex HTTP API client
   ClipCrypto.swift          AES-GCM, PBKDF2, ECDH and HKDF helpers
+  TransferCrypto.swift      Transfer link format and encryption
+  TransferClient.swift      Transfer upload, opening and download
+  TransferStore.swift       Cloud Transfer state
   ClipboardPoller.swift     Pasteboard monitoring and upload
   ScreenshotWatcher.swift   Screenshot folder monitoring
   Stores.swift              History, friends and feedback data

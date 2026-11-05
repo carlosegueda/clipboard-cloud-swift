@@ -14,7 +14,9 @@ enum SessionStore {
     private static let service = "Clipboard Cloud"
     private static let account = "session"
 
-    private static var baseQuery: [String: Any] {
+    private static var baseQuery: [String: Any] { baseQuery(account: account) }
+
+    private static func baseQuery(account: String) -> [String: Any] {
         [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrService as String: service,
@@ -33,23 +35,32 @@ enum SessionStore {
     }
 
     static func load() -> StoredSession? {
-        guard !ephemeral else { return nil }
-        var query = baseQuery
-        query[kSecReturnData as String] = true
-        query[kSecMatchLimit as String] = kSecMatchLimitOne
-        var result: AnyObject?
-        guard SecItemCopyMatching(query as CFDictionary, &result) == errSecSuccess,
-              let data = result as? Data else { return nil }
+        guard let data = loadData(account: account) else { return nil }
         return try? JSONDecoder().decode(StoredSession.self, from: data)
     }
 
     static func save(_ session: StoredSession) {
-        guard !ephemeral else { return }
         guard let data = try? JSONEncoder().encode(session) else { return }
+        saveData(data, account: account)
+    }
+
+    static func loadData(account: String) -> Data? {
+        guard !ephemeral else { return nil }
+        var query = baseQuery(account: account)
+        query[kSecReturnData as String] = true
+        query[kSecMatchLimit as String] = kSecMatchLimitOne
+        var result: AnyObject?
+        guard SecItemCopyMatching(query as CFDictionary, &result) == errSecSuccess else { return nil }
+        return result as? Data
+    }
+
+    static func saveData(_ data: Data, account: String) {
+        guard !ephemeral else { return }
+        let query = baseQuery(account: account)
         let update = [kSecValueData as String: data]
-        var status = SecItemUpdate(baseQuery as CFDictionary, update as CFDictionary)
+        var status = SecItemUpdate(query as CFDictionary, update as CFDictionary)
         if status == errSecItemNotFound {
-            var add = baseQuery
+            var add = query
             add[kSecValueData as String] = data
             add[kSecAttrAccessible as String] = kSecAttrAccessibleAfterFirstUnlock
             status = SecItemAdd(add as CFDictionary, nil)

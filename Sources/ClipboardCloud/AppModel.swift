@@ -14,6 +14,7 @@ final class AppModel {
     let history: HistoryStore
     let friends: FriendsStore
     let poll: PollStore
+    let transfers: TransferStore
     private(set) var status = MonitorStatus()
     private(set) var toast: String?
 
@@ -35,6 +36,9 @@ final class AppModel {
         history = HistoryStore(convex: convex, session: session)
         friends = FriendsStore(convex: convex)
         poll = PollStore(convex: convex)
+        transfers = TransferStore(
+            client: TransferClient(convex: convex, webAppURL: AppConfig.webAppURL), session: session
+        )
         poller = ClipboardPoller(convex: convex, deviceId: deviceId)
 
         session.onChange = { [weak self] in self?.sessionChanged() }
@@ -118,6 +122,7 @@ final class AppModel {
         case .signedOut:
             history.reset()
             friends.reset()
+            transfers.reset()
         case .loading, .locked:
             break
         }
