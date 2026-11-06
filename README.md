@@ -90,16 +90,6 @@ the app:
 ditto -c -k --sequesterRsrc --keepParent ClipboardCloud.app ClipboardCloud.zip
 ```
 
-## Configuration
-
-The backend endpoints can be overridden with environment variables:
-
-| Variable               | Description                         |
-| ---------------------- | ----------------------------------- |
-| `CC_CONVEX_URL`        | Convex deployment URL               |
-| `CC_WEB_APP_URL`       | Web app URL                         |
-| `CC_EPHEMERAL_SESSION` | Debug builds only. Set it to `1` to skip the Keychain, so the session is not persisted. |
-
 ## Security model
 
 The encryption format is compatible with the web client:
@@ -133,35 +123,6 @@ The encryption format is compatible with the web client:
 
 If access is denied, the app explains how to grant it in System Settings,
 under Privacy & Security, then Files and Folders.
-
-## Project structure
-
-```
-Sources/ClipboardCloud/
-  ClipboardCloudApp.swift   App entry point, menu bar and window scenes
-  AppModel.swift            Shared state and user actions
-  Session.swift             Authentication, token refresh, key unlocking
-  SessionStore.swift        Keychain persistence
-  ConvexHTTPClient.swift    Convex HTTP API client
-  ClipCrypto.swift          AES-GCM, PBKDF2, ECDH and HKDF helpers
-  TransferCrypto.swift      Transfer link format and encryption
-  TransferClient.swift      Transfer upload, opening and download
-  TransferStore.swift       Cloud Transfer state
-  ClipboardPoller.swift     Pasteboard monitoring and upload
-  ScreenshotWatcher.swift   Screenshot folder monitoring
-  Stores.swift              History, friends and feedback data
-  Models.swift              API models
-  Localization*.swift       Strings for all supported languages
-  Theme.swift               Colors, fonts and reusable controls
-  Views/                    SwiftUI screens
-  Resources/                Bundled font (Oswald, SIL Open Font License)
-Config/
-  Info.plist                App Info.plist
-  Assets.xcassets           App icon and other assets
-ClipboardCloud.xcodeproj    Xcode project
-scripts/
-  bundle.sh                 Release build and .app packaging
-```
 
 ## License
 
