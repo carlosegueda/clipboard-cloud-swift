@@ -203,10 +203,9 @@ final class Localizer {
 
     static let es: [L: String] = [
         .navTransfer: "Transferir",
-        .transferLede: "Comparte archivos con un enlace, sin crear cuenta. Se borran solos en 24 horas.",
-        .transferLedeAccount: "Comparte archivos con un enlace que cualquiera puede abrir. Se borran solos en 24 horas.",
+        .transferLede: "Sube archivos en la nube y compártelos.",
         .transferDrop: "Arrastra archivos aquí", .transferChoose: "Elegir archivos",
-        .transferPasswordLabel: "Contraseña (opcional)",
+        .transferPasswordLabel: "Contraseña",
         .transferPasswordHint: "Quien abra el enlace la necesitará. No se puede recuperar; compártela por otro medio.",
         .transferPasswordShort: "La contraseña debe tener al menos 4 caracteres.",
         .transferCreate: "Crear enlace", .transferReady: "Tu enlace está listo", .transferCopyLink: "Copiar enlace",
@@ -306,10 +305,9 @@ final class Localizer {
 
     static let en: [L: String] = [
         .navTransfer: "Transfer",
-        .transferLede: "Share files with a link, no account needed. They delete themselves after 24 hours.",
-        .transferLedeAccount: "Share files with a link anyone can open. They delete themselves after 24 hours.",
+        .transferLede: "Upload files to the cloud and share them.",
         .transferDrop: "Drop files here", .transferChoose: "Choose files",
-        .transferPasswordLabel: "Password (optional)",
+        .transferPasswordLabel: "Password",
         .transferPasswordHint: "Anyone opening the link will need it. It can't be recovered, so share it separately.",
         .transferPasswordShort: "The password must be at least 4 characters.",
         .transferCreate: "Create link", .transferReady: "Your link is ready", .transferCopyLink: "Copy link",
@@ -441,7 +439,7 @@ enum L: String {
     case unknownUser, decryptPending
     case menuShow, menuPause, menuResume, menuSignIn, menuUnlock, menuSessionActive
     case menuScreenshotPermission, menuQuit, menuCopyLatest
-    case navTransfer, transferLede, transferLedeAccount, transferDrop, transferChoose
+    case navTransfer, transferLede, transferDrop, transferChoose
     case transferPasswordLabel, transferPasswordHint, transferPasswordShort
     case transferCreate, transferReady, transferCopyLink, transferNew, transferActive, transferDelete
     case transferDeleteFailed, transferHasPassword, transferFolderSkipped, transferFailed, transferQuota

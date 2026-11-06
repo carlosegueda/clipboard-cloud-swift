@@ -23,6 +23,10 @@
 		8098EA6143113FA4C5B1B41B /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B1E031AB18F12173D3C0335 /* FriendsView.swift */; };
 		870FF18D3285772F68AD8E97 /* ConvexHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A43A9A979E80BBFFB3B94FD /* ConvexHTTPClient.swift */; };
 		9F0BF44119FA64E1A6B7B377 /* MenuContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB82F556655251F9D6067D8 /* MenuContentView.swift */; };
+		A1C0DE000000000000000001 /* TransferClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C0DE000000000000000011 /* TransferClient.swift */; };
+		A1C0DE000000000000000002 /* TransferCrypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C0DE000000000000000012 /* TransferCrypto.swift */; };
+		A1C0DE000000000000000003 /* TransferStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C0DE000000000000000013 /* TransferStore.swift */; };
+		A1C0DE000000000000000004 /* TransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C0DE000000000000000014 /* TransferView.swift */; };
 		C02065F8FC21AD85159F56CD /* ScreenshotWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A47F9959F564950AA5B5024 /* ScreenshotWatcher.swift */; };
 		CCE84F696E6CC98E854FDF91 /* Oswald-OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5651EAD6C82B952A9A57D830 /* Oswald-OFL.txt */; };
 		CDA5E882C0F492977FF0092E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B00A31428853642CC2B2131 /* MainView.swift */; };
@@ -32,10 +36,6 @@
 		ED9376077AAD65FC32E7AB9C /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247B73E61F1F998C6BDD25C6 /* Models.swift */; };
 		FC332E8BDBD14B63BC3E6E34 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BD1E7CAEBC6DBBC4ECAE691 /* AddView.swift */; };
 		FDED60EEBF15F6143794B2C6 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BABA110B30DE88D9533DF4D /* Theme.swift */; };
-		A1C0DE000000000000000001 /* TransferClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C0DE000000000000000011 /* TransferClient.swift */; };
-		A1C0DE000000000000000002 /* TransferCrypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C0DE000000000000000012 /* TransferCrypto.swift */; };
-		A1C0DE000000000000000003 /* TransferStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C0DE000000000000000013 /* TransferStore.swift */; };
-		A1C0DE000000000000000004 /* TransferView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C0DE000000000000000014 /* TransferView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,16 +59,16 @@
 		97F56508B798E4BB110FBCE6 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		9AFA3A0AC593A2B1FF7247BE /* Oswald.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Oswald.ttf; sourceTree = "<group>"; };
 		9B1E031AB18F12173D3C0335 /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
+		A1C0DE000000000000000011 /* TransferClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferClient.swift; sourceTree = "<group>"; };
+		A1C0DE000000000000000012 /* TransferCrypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferCrypto.swift; sourceTree = "<group>"; };
+		A1C0DE000000000000000013 /* TransferStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferStore.swift; sourceTree = "<group>"; };
+		A1C0DE000000000000000014 /* TransferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferView.swift; sourceTree = "<group>"; };
 		B290748DD59EA63DC62FF16A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA692146E4CF3A459568FD25 /* ClipCrypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipCrypto.swift; sourceTree = "<group>"; };
 		D3612EBFFBE3A481349B2A06 /* ClipboardPoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardPoller.swift; sourceTree = "<group>"; };
 		DCAF089F9C5C9FC3D6D0021A /* MainWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowView.swift; sourceTree = "<group>"; };
 		E04992ED2908B13AB969C004 /* Stores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stores.swift; sourceTree = "<group>"; };
 		F7535DD12F4E61B9F19507D8 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
-		A1C0DE000000000000000011 /* TransferClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferClient.swift; sourceTree = "<group>"; };
-		A1C0DE000000000000000012 /* TransferCrypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferCrypto.swift; sourceTree = "<group>"; };
-		A1C0DE000000000000000013 /* TransferStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferStore.swift; sourceTree = "<group>"; };
-		A1C0DE000000000000000014 /* TransferView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -333,6 +333,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -344,7 +345,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = biz.authcode.ClipboardCloud;
 				PRODUCT_NAME = ClipboardCloud;
 				SDKROOT = macosx;
@@ -358,6 +359,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -369,7 +371,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = biz.authcode.ClipboardCloud;
 				PRODUCT_NAME = ClipboardCloud;
 				SDKROOT = macosx;

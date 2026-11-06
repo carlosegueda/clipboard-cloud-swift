@@ -47,7 +47,7 @@ struct MainView: View {
                 case .add:
                     AddView(onSaved: { section = .history })
                 case .transfer:
-                    TransferView(signedIn: true)
+                    TransferView()
                 case .settings:
                     SettingsView()
                 case .about:

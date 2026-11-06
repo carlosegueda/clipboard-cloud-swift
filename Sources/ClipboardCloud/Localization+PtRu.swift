@@ -4,10 +4,9 @@ import Foundation
 extension Localizer {
     static let pt: [L: String] = [
         .navTransfer: "Transferir",
-        .transferLede: "Compartilhe arquivos com um link, sem criar conta. Eles são apagados sozinhos em 24 horas.",
-        .transferLedeAccount: "Compartilhe arquivos com um link que qualquer pessoa pode abrir. Eles são apagados sozinhos em 24 horas.",
+        .transferLede: "Envie arquivos para a nuvem e compartilhe-os.",
         .transferDrop: "Arraste arquivos aqui", .transferChoose: "Escolher arquivos",
-        .transferPasswordLabel: "Senha (opcional)",
+        .transferPasswordLabel: "Senha",
         .transferPasswordHint: "Quem abrir o link vai precisar dela. Não pode ser recuperada; compartilhe por outro meio.",
         .transferPasswordShort: "A senha deve ter pelo menos 4 caracteres.",
         .transferCreate: "Criar link", .transferReady: "Seu link está pronto", .transferCopyLink: "Copiar link",
@@ -108,10 +107,9 @@ extension Localizer {
 
     static let ru: [L: String] = [
         .navTransfer: "Передача",
-        .transferLede: "Делитесь файлами по ссылке, без регистрации. Они удаляются сами через 24 часа.",
-        .transferLedeAccount: "Делитесь файлами по ссылке, которую может открыть любой. Они удаляются сами через 24 часа.",
+        .transferLede: "Загружайте файлы в облако и делитесь ими.",
         .transferDrop: "Перетащите файлы сюда", .transferChoose: "Выбрать файлы",
-        .transferPasswordLabel: "Пароль (необязательно)",
+        .transferPasswordLabel: "Пароль",
         .transferPasswordHint: "Он понадобится всем, кто откроет ссылку. Его нельзя восстановить; передайте его отдельно.",
         .transferPasswordShort: "Пароль должен содержать не менее 4 символов.",
         .transferCreate: "Создать ссылку", .transferReady: "Ваша ссылка готова", .transferCopyLink: "Копировать ссылку",

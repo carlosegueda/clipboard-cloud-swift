@@ -6,8 +6,6 @@ import UniformTypeIdentifiers
 /// (en la web esto lo resuelve abrir el enlace en el navegador).
 struct TransferView: View {
     @Environment(AppModel.self) private var model
-    /// El login ya presenta la app sin cuenta; con sesión el texto es otro.
-    var signedIn = false
 
     @State private var password = ""
     @State private var picking = false
@@ -33,7 +31,7 @@ struct TransferView: View {
                                     .textCase(.uppercase)
                                     .squish()
                             }
-                            MutedText(text: loc.t(signedIn ? .transferLedeAccount : .transferLede), size: 14)
+                            MutedText(text: loc.t(.transferLede), size: 14)
                         }
                         if let result = store.result {
                             resultSection(result)

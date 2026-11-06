@@ -7,6 +7,14 @@ the same account on the web and on other devices.
 It is written in SwiftUI and AppKit. There are no web views and no third-party
 dependencies.
 
+![Clipboard Cloud history with a synced screenshot and text](docs/screenshots/history.png)
+
+## Screenshots
+
+| Share without an account | Add files and a password | Get a temporary link |
+| --- | --- | --- |
+| ![Cloud Transfer next to the sign-in form](docs/screenshots/cloud-transfer-no-account.png) | ![Cloud Transfer with a selected file and a password](docs/screenshots/cloud-transfer-upload.png) | ![Cloud Transfer showing a ready link that expires in 24 hours](docs/screenshots/cloud-transfer-link.png) |
+
 ## Features
 
 - **Menu bar app with an optional window.** The app lives in the menu bar. The
